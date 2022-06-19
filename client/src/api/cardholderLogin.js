@@ -1,0 +1,13 @@
+import axios from "axios";
+
+export const cardholderLogin = async(user) => {
+	try {
+		const response = await axios.post(`${process.env.REACT_APP_BACKEND}/cardholders/login`, {
+			username: user.username,
+			password: user.password,
+		})
+		return response
+	} catch(error) {
+		return error.response
+	}
+}
